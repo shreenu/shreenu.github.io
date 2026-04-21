@@ -3,409 +3,387 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Srinu Konapala — Solutions Architect & Senior Technical Lead</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Epilogue:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<title>Srinu Konapala — Solutions Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --ink:     #0a0a0f;
-  --ink2:    #2a2a35;
-  --smoke:   #f4f3ef;
-  --paper:   #faf9f6;
-  --white:   #ffffff;
-  --accent:  #c8410a;
-  --accent2: #1a5e8a;
-  --muted:   #7a7870;
-  --border:  #dedad3;
-  --tag-bg:  #eeecea;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
 body {
-  background: var(--paper); color: var(--ink);
-  font-family: 'Epilogue', sans-serif; font-weight: 300;
-  line-height: 1.7; overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 300;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.7;
 }
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--smoke); }
-::-webkit-scrollbar-thumb { background: var(--accent); }
 
-/* NAV */
+/* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  position: sticky; top: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1.1rem 5vw;
-  background: rgba(250,249,246,0.93); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border); transition: box-shadow 0.3s;
+  padding: 1rem 6%;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
 }
-nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
-.nav-logo {
-  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem;
-  color: var(--ink); text-decoration: none; letter-spacing: -0.02em;
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 900; font-size: 1.1rem;
+  color: #1a1a1a; text-decoration: none;
 }
-.nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-  color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s;
+.logo b { color: #e85d04; }
+.nav-menu { display:flex; gap:2rem; list-style:none; }
+.nav-menu a {
+  font-size: 0.82rem; font-weight: 500;
+  color: #888; text-decoration:none;
+  transition: color 0.2s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-menu a:hover { color: #e85d04; }
 
-/* HERO */
-#hero {
-  min-height: 100vh; display: grid;
-  grid-template-columns: 1fr 1fr; align-items: center;
-  padding: 7rem 5vw 4rem; gap: 4rem; position: relative; overflow: hidden;
+/* ── HERO ── */
+.hero {
+  padding: 8rem 6% 6rem;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 6rem;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
 }
-.hero-bg-text {
-  position: absolute; right: -1vw; top: 50%; transform: translateY(-50%);
-  font-family: 'Playfair Display', serif; font-size: clamp(10rem, 18vw, 20rem);
-  font-weight: 900; color: transparent; -webkit-text-stroke: 1px var(--border);
-  pointer-events: none; user-select: none; opacity: 0.45; line-height: 1;
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
 }
-.hero-left { position: relative; z-index: 2; }
-.hero-eyebrow {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent);
-  letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.4rem;
-  opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+.hero-name span { color: #e85d04; display:block; }
+
+.hero-role {
+  font-size: 1rem; font-weight: 400;
+  color: #555; margin-bottom: 1.8rem;
+  border-left: 3px solid #e85d04;
+  padding-left: 1rem;
+  line-height: 1.6;
 }
-h1 {
-  font-family: 'Playfair Display', serif; font-weight: 900;
-  font-size: clamp(3rem, 5.5vw, 5rem); line-height: 1.03;
-  letter-spacing: -0.03em; color: var(--ink);
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s;
+
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 2.5rem;
 }
-h1 em { color: var(--accent); font-style: normal; }
-.hero-desc {
-  margin-top: 1.6rem; font-size: 1rem; color: var(--muted); max-width: 440px;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
-}
-.hero-chips {
-  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.8rem;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
-}
-.chip {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.67rem;
-  padding: 0.28rem 0.75rem; border: 1px solid var(--border);
-  border-radius: 2px; color: var(--ink2); background: var(--white);
+.tag {
+  font-size: 0.75rem; font-weight: 500;
+  padding: 0.35rem 0.9rem;
+  background: #f5f5f5;
+  border-radius: 100px;
+  color: #444;
   transition: all 0.2s;
 }
-.chip:hover { border-color: var(--accent); color: var(--accent); }
-.hero-actions {
-  display: flex; gap: 1rem; margin-top: 2.2rem;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
-}
+.tag:hover { background: #e85d04; color: #fff; }
+
+.hero-btns { display:flex; gap:1rem; }
 .btn {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.73rem;
-  letter-spacing: 0.08em; padding: 0.85rem 2rem; border-radius: 2px;
-  text-decoration: none; transition: all 0.22s; border: none; cursor: pointer;
+  display: inline-block;
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
 }
-.btn-fill { background: var(--accent); color: #fff; }
-.btn-fill:hover { background: #a33208; transform: translateY(-2px); }
-.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink2); }
-.btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.btn-solid { background: #1a1a1a; color: #fff; }
+.btn-solid:hover { background: #e85d04; }
+.btn-border { border: 1.5px solid #ccc; color: #444; }
+.btn-border:hover { border-color: #1a1a1a; color: #1a1a1a; }
 
-/* Hero right panel */
-.hero-right { position: relative; z-index: 2; opacity: 0; animation: fadeIn 1s ease forwards 0.8s; }
-.stats-panel { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-.stats-panel-header {
-  background: var(--ink); padding: 0.9rem 1.4rem;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #777; letter-spacing: 0.1em;
+/* Hero right — card */
+.info-card {
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #eee;
 }
-.stats-panel-header span { color: #5af; }
-.stat-row {
-  display: flex; align-items: center; padding: 1rem 1.4rem;
-  border-bottom: 1px solid var(--border); gap: 1rem; transition: background 0.2s;
+.info-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem; font-weight: 700;
+  margin-bottom: 1.2rem; color: #1a1a1a;
 }
-.stat-row:last-child { border-bottom: none; }
-.stat-row:hover { background: var(--smoke); }
-.stat-num {
-  font-family: 'Playfair Display', serif; font-weight: 700;
-  font-size: 1.9rem; color: var(--accent); min-width: 72px; letter-spacing: -0.03em;
+.stat-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+.stat-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85rem;
 }
-.stat-label { font-size: 0.83rem; font-weight: 500; color: var(--ink); }
-.stat-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); }
-.contact-strip { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
-.contact-item {
-  display: flex; align-items: center; gap: 0.65rem;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted);
-}
-.contact-item a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.contact-item a:hover { color: var(--accent); }
-.c-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.stat-list li:last-child { border-bottom: none; }
+.stat-list .label { color: #888; }
+.stat-list .value { font-weight: 600; color: #1a1a1a; }
+.stat-list .value.accent { color: #e85d04; font-family:'Fraunces',serif; font-size:1.1rem; }
 
-/* SECTIONS */
-section { position: relative; }
-.wrap { padding: 6rem 5vw; }
-.s-label {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.67rem; color: var(--accent);
-  letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.6rem;
+.contact-info {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.contact-info a, .contact-info span {
+  font-size: 0.8rem; color: #666; text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.contact-info a:hover { color: #e85d04; }
+
+/* ── SECTIONS ── */
+section { padding: 5rem 6%; border-bottom: 1px solid #e8e8e8; }
+section:last-of-type { border-bottom: none; }
+
+.sec-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #e85d04; margin-bottom: 0.5rem;
 }
 h2 {
-  font-family: 'Playfair Display', serif; font-weight: 700;
-  font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink);
-  letter-spacing: -0.02em; margin-bottom: 3rem;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900; line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1a1a1a; margin-bottom: 3rem;
 }
 
-/* ABOUT */
-#about { background: var(--smoke); }
-.about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
-.about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.85; }
-.about-text p strong { color: var(--ink); font-weight: 500; }
-.about-text p em { color: var(--accent); font-style: normal; font-weight: 500; }
-.competencies {
-  margin-top: 1.5rem; padding: 1.2rem 1.5rem;
-  background: var(--white); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0;
-}
-.comp-label {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-  color: var(--accent); letter-spacing: 0.12em; margin-bottom: 0.6rem;
-}
-.comp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.comp-tag {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-  padding: 0.22rem 0.55rem; background: var(--tag-bg); color: var(--ink2); border-radius: 2px;
-}
-.sidebar-panel { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-.sidebar-panel .stats-panel-header { font-size: 0.65rem; }
-.sidebar-panel-body { padding: 1.3rem 1.4rem; display: flex; flex-direction: column; gap: 0.8rem; }
+/* ── ABOUT ── */
+.about-grid { display:grid; grid-template-columns:2fr 1fr; gap:5rem; }
+.about-text p { color:#555; margin-bottom:1rem; font-size:0.97rem; line-height:1.85; }
+.about-text p strong { color:#1a1a1a; font-weight:600; }
+.competencies { margin-top:1.5rem; }
+.competencies h4 { font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin-bottom:0.8rem; }
+.comp-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.comp-tag { font-size:0.75rem; padding:0.25rem 0.7rem; background:#f0f0f0; border-radius:4px; color:#555; }
 
-/* SKILLS */
-#skills { background: var(--paper); }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.4rem; }
-.skill-card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 4px; padding: 1.4rem; transition: all 0.25s; position: relative; overflow: hidden;
-}
-.skill-card::after {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0; height: 2px; background: var(--accent); transition: width 0.3s;
-}
-.skill-card:hover { transform: translateY(-3px); border-color: #ccc; }
-.skill-card:hover::after { width: 100%; }
-.skill-card.ai-card { border-color: var(--accent); background: #fff8f5; }
-.skill-card.ai-card::after { width: 100%; }
-.sc-title {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--accent);
-  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.85rem;
-}
-.sc-tags { display: flex; flex-wrap: wrap; gap: 0.38rem; }
-.sc-tag {
-  font-size: 0.76rem; padding: 0.22rem 0.6rem;
-  background: var(--tag-bg); color: var(--ink2); border-radius: 2px; border: 1px solid var(--border);
-}
+.sidebar-box { background:#f9f9f9; border-radius:12px; padding:1.8rem; border:1px solid #eee; }
+.sidebar-box h4 { font-family:'Fraunces',serif; font-weight:700; font-size:0.95rem; margin-bottom:1rem; }
+.sidebar-list { list-style:none; display:flex; flex-direction:column; gap:0.55rem; }
+.sidebar-list li { font-size:0.82rem; color:#555; display:flex; gap:0.5rem; }
+.sidebar-list li::before { content:'→'; color:#e85d04; flex-shrink:0; }
 
-/* EXPERIENCE */
-#experience { background: var(--smoke); }
-.exp-list { display: flex; flex-direction: column; }
+/* ── SKILLS ── */
+#skills { background:#fafafa; }
+.skills-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.2rem; }
+.skill-box {
+  background:#fff; border:1px solid #eee; border-radius:12px; padding:1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.skill-box:hover { border-color:#e85d04; transform:translateY(-2px); }
+.skill-box.featured { border-color:#e85d04; background:#fff8f5; }
+.skill-box-title { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#e85d04; margin-bottom:0.85rem; }
+.skill-pills { display:flex; flex-wrap:wrap; gap:0.35rem; }
+.skill-pill { font-size:0.75rem; padding:0.22rem 0.6rem; background:#f0f0f0; border-radius:4px; color:#444; }
+
+/* ── EXPERIENCE ── */
+.exp-list { display:flex; flex-direction:column; }
 .exp-item {
-  display: grid; grid-template-columns: 210px 1fr;
-  gap: 3rem; padding: 2.6rem 0; border-bottom: 1px solid var(--border);
+  display:grid; grid-template-columns:200px 1fr;
+  gap:3rem; padding:2.5rem 0;
+  border-bottom:1px solid #e8e8e8;
 }
-.exp-item:last-child { border-bottom: none; }
-.exp-period {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-  color: var(--accent); letter-spacing: 0.06em; margin-bottom: 0.35rem;
+.exp-item:last-child { border-bottom:none; }
+.exp-meta {}
+.exp-period { font-size:0.75rem; font-weight:600; color:#e85d04; margin-bottom:0.3rem; }
+.exp-company { font-size:0.9rem; font-weight:600; color:#1a1a1a; margin-bottom:0.15rem; }
+.exp-loc { font-size:0.75rem; color:#aaa; }
+.exp-body {}
+.exp-title {
+  font-family:'Fraunces',serif; font-weight:700; font-size:1.2rem;
+  color:#1a1a1a; margin-bottom:0.2rem; letter-spacing:-0.01em;
 }
-.exp-company { font-weight: 600; font-size: 0.88rem; color: var(--ink); margin-bottom: 0.15rem; }
-.exp-location { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); }
-.exp-role {
-  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem;
-  color: var(--ink); margin-bottom: 0.2rem; letter-spacing: -0.02em;
-}
-.exp-project {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-  color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.04em;
-}
-.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-project { font-size:0.78rem; color:#aaa; margin-bottom:1rem; }
+.exp-bullets { list-style:none; display:flex; flex-direction:column; gap:0.45rem; }
 .exp-bullets li {
-  font-size: 0.88rem; color: var(--muted);
-  padding-left: 1.1rem; position: relative; line-height: 1.65;
+  font-size:0.88rem; color:#555; padding-left:1.1rem;
+  position:relative; line-height:1.65;
 }
-.exp-bullets li::before {
-  content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.12rem;
+.exp-bullets li::before { content:'–'; position:absolute; left:0; color:#e85d04; }
+.exp-bullets li strong { color:#1a1a1a; font-weight:600; }
+.exp-stack { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.9rem; }
+.stack-tag { font-size:0.72rem; padding:0.18rem 0.55rem; background:#1a1a1a; color:#ccc; border-radius:4px; }
+
+/* ── AI PROJECTS ── */
+#ai { background:#1a1a1a; border-bottom:none; }
+#ai .sec-label { color:#e85d04; }
+#ai h2 { color:#fff; }
+.ai-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.ai-box {
+  background:#242424; border:1px solid #333; border-radius:12px; padding:2rem;
+  transition: border-color 0.2s;
 }
-.exp-bullets li strong { color: var(--ink); font-weight: 500; }
-.exp-pills { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 0.9rem; }
-.exp-pill {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.63rem;
-  padding: 0.18rem 0.52rem; background: var(--ink); color: #bbb; border-radius: 2px;
+.ai-box:hover { border-color:#e85d04; }
+.ai-badge {
+  display:inline-block; font-size:0.68rem; font-weight:700;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:0.25rem 0.7rem; border-radius:100px;
+  background:#e85d04; color:#fff; margin-bottom:1rem;
+}
+.ai-title { font-family:'Fraunces',serif; font-weight:700; font-size:1.15rem; color:#fff; margin-bottom:0.3rem; }
+.ai-stack-line { font-size:0.75rem; color:#666; margin-bottom:1.1rem; }
+.ai-pts { list-style:none; display:flex; flex-direction:column; gap:0.45rem; }
+.ai-pts li { font-size:0.84rem; color:#888; padding-left:1rem; position:relative; line-height:1.6; }
+.ai-pts li::before { content:'·'; position:absolute; left:0; color:#e85d04; font-size:1.2rem; line-height:1; top:0.1rem; }
+.ai-result {
+  margin-top:1.2rem; padding:0.8rem 1rem;
+  border-left:2px solid #e85d04;
+  font-size:0.78rem; color:#666; line-height:1.6;
 }
 
-/* AI SECTION */
-#ai { background: #0a0a0f; }
-#ai .s-label { color: #f07040; }
-#ai h2 { color: #fff; margin-bottom: 0.8rem; }
-.ai-intro { color: #555; font-size: 0.9rem; margin-bottom: 3rem; }
-.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.ai-card {
-  background: #111118; border: 1px solid #1e1e2e; border-radius: 4px;
-  padding: 2rem; transition: all 0.25s; position: relative; overflow: hidden;
+/* ── PROJECTS ── */
+.proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.proj-box {
+  border:1px solid #eee; border-radius:12px; padding:1.6rem;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.ai-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, #c8410a, #1a5e8a);
-}
-.ai-card:hover { border-color: #2a2a40; transform: translateY(-4px); }
-.ai-num { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: #f07040; letter-spacing: 0.15em; margin-bottom: 0.9rem; }
-.ai-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; color: #fff; margin-bottom: 0.35rem; }
-.ai-stack { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: #4a6a88; margin-bottom: 1.1rem; }
-.ai-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.48rem; }
-.ai-bullets li { font-size: 0.84rem; color: #777; padding-left: 1rem; position: relative; line-height: 1.6; }
-.ai-bullets li::before { content: '▸'; position: absolute; left: 0; color: #f07040; font-size: 0.62rem; top: 0.22rem; }
-.ai-outcome {
-  margin-top: 1.1rem; padding: 0.75rem 1rem;
-  background: rgba(200,65,10,0.07); border-left: 2px solid #c8410a;
-  font-size: 0.78rem; color: #999; line-height: 1.6;
-}
+.proj-box:hover { border-color:#1a1a1a; transform:translateY(-2px); }
+.proj-sector { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#aaa; margin-bottom:0.6rem; }
+.proj-name { font-family:'Fraunces',serif; font-weight:700; font-size:1rem; color:#1a1a1a; margin-bottom:0.25rem; }
+.proj-client { font-size:0.75rem; color:#e85d04; margin-bottom:0.7rem; }
+.proj-desc { font-size:0.82rem; color:#777; line-height:1.65; }
 
-/* PROJECTS */
-#projects { background: var(--paper); }
-.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-.proj-card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 4px; padding: 1.7rem; transition: all 0.25s;
+/* ── CERTS ── */
+#certs { background:#fafafa; }
+.cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.cert-box {
+  background:#fff; border:1px solid #eee; border-radius:12px; padding:1.3rem;
+  display:flex; align-items:center; gap:0.9rem;
+  transition: border-color 0.2s;
 }
-.proj-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
-.proj-num { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--accent2); letter-spacing: 0.15em; margin-bottom: 0.7rem; }
-.proj-title { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
-.proj-client { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--accent); margin-bottom: 0.75rem; }
-.proj-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.65; }
+.cert-box:hover { border-color:#e85d04; }
+.cert-icon { font-size:1.4rem; }
+.cert-name { font-size:0.85rem; font-weight:600; color:#1a1a1a; }
+.cert-by { font-size:0.72rem; color:#aaa; margin-top:0.15rem; }
 
-/* CERTS */
-#certs { background: var(--smoke); }
-.certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1rem; }
-.cert-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 4px;
-  padding: 1.3rem; display: flex; align-items: center; gap: 0.9rem; transition: all 0.2s;
-}
-.cert-card:hover { border-color: var(--accent2); }
-.cert-ico { font-size: 1.3rem; }
-.cert-name { font-size: 0.86rem; font-weight: 500; color: var(--ink); }
-.cert-by { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); margin-top: 0.2rem; }
-
-/* FOOTER */
+/* ── FOOTER ── */
 footer {
-  background: var(--ink); padding: 2.5rem 5vw;
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  padding:2rem 6%;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1rem;
+  background:#1a1a1a;
 }
-.footer-brand { font-family: 'Playfair Display', serif; font-weight: 700; color: #fff; font-size: 1rem; }
-.footer-brand span { color: var(--accent); }
-.footer-links { display: flex; gap: 2rem; }
-.footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.67rem; color: #666; text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--accent); }
-.footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: #444; }
+.footer-name { font-family:'Fraunces',serif; font-weight:900; color:#fff; font-size:1rem; }
+.footer-name b { color:#e85d04; }
+.footer-links { display:flex; gap:1.5rem; }
+.footer-links a { font-size:0.78rem; color:#666; text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:#e85d04; }
+.footer-copy { font-size:0.75rem; color:#444; }
 
-/* ANIMATIONS */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* ── ANIMATIONS ── */
+.fade { opacity:0; transform:translateY(20px); transition:opacity 0.55s ease, transform 0.55s ease; }
+.fade.show { opacity:1; transform:none; }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; }
-  .hero-right, .hero-bg-text { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
-  .ai-grid { grid-template-columns: 1fr; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .hero { grid-template-columns:1fr; gap:3rem; }
+  .about-grid { grid-template-columns:1fr; gap:2rem; }
+  .exp-item { grid-template-columns:1fr; gap:0.3rem; }
+  .ai-grid { grid-template-columns:1fr; }
+  .proj-grid { grid-template-columns:1fr; }
+  .nav-menu { display:none; }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
-  <a class="nav-logo" href="#"><span>SK</span> — Srinu Konapala</a>
-  <ul class="nav-links">
+<nav>
+  <a class="logo" href="#"><b>SK</b> Srinu Konapala</a>
+  <ul class="nav-menu">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#ai">AI Projects</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#certs">Certifications</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-text">SA</div>
-  <div class="hero-left">
-    <div class="hero-eyebrow">// Solutions Architect & Senior Technical Lead</div>
-    <h1>Building<br/>systems that<br/><em>scale.</em></h1>
-    <p class="hero-desc">13+ years engineering cloud-native APIs, microservices, and event-driven architectures on AWS. Currently leading modernization at Nissan North America. Actively building AI-powered backends with LangChain & LangGraph.</p>
-    <div class="hero-chips">
-      <span class="chip">Node.js</span>
-      <span class="chip">AWS Lambda</span>
-      <span class="chip">Microservices</span>
-      <span class="chip">Python</span>
-      <span class="chip">RAG / LLM</span>
-      <span class="chip">LangGraph</span>
-      <span class="chip">Kafka</span>
-      <span class="chip">TypeScript</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Java Spring Boot</span>
+<div class="hero">
+  <div>
+    <h1 class="hero-name">Srinu<span>Konapala.</span></h1>
+    <p class="hero-role">
+      Solutions Architect & Senior Technical Lead<br/>
+      Cloud-Native APIs · Microservices · AI/LLM Systems
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Node.js</span>
+      <span class="tag">AWS Lambda</span>
+      <span class="tag">Kafka</span>
+      <span class="tag">Python</span>
+      <span class="tag">LangChain</span>
+      <span class="tag">LangGraph</span>
+      <span class="tag">RAG / LLM</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Java Spring Boot</span>
     </div>
-    <div class="hero-actions">
-      <a href="mailto:mr.shreenu21@gmail.com" class="btn btn-fill">Get in Touch</a>
-      <a href="#experience" class="btn btn-ghost">View Experience</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="stats-panel">
-      <div class="stats-panel-header"><span>srinu</span>.profile — <span>active</span></div>
-      <div class="stat-row"><div class="stat-num">13+</div><div><div class="stat-label">Years Experience</div><div class="stat-sub">2012 → Present</div></div></div>
-      <div class="stat-row"><div class="stat-num">40%</div><div><div class="stat-label">Integration Time Reduced</div><div class="stat-sub">Kafka outbound framework</div></div></div>
-      <div class="stat-row"><div class="stat-num">95%</div><div><div class="stat-label">Manual Entry Eliminated</div><div class="stat-sub">Python OCR automation</div></div></div>
-      <div class="stat-row"><div class="stat-num">90%</div><div><div class="stat-label">Parsing Errors Reduced</div><div class="stat-sub">XSD + WebAssembly validation</div></div></div>
-      <div class="stat-row"><div class="stat-num">2×</div><div><div class="stat-label">Throughput Achieved</div><div class="stat-sub">Artillery.io performance testing</div></div></div>
-    </div>
-    <div class="contact-strip">
-      <div class="contact-item"><div class="c-dot"></div>Franklin, Tennessee — Open to Relocation</div>
-      <div class="contact-item"><div class="c-dot"></div><a href="mailto:mr.shreenu21@gmail.com">mr.shreenu21@gmail.com</a></div>
-      <div class="contact-item"><div class="c-dot"></div>+1 (945) 544-7958</div>
-      <div class="contact-item"><div class="c-dot"></div><a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn Profile ↗</a></div>
+    <div class="hero-btns">
+      <a href="mailto:mr.shreenu21@gmail.com" class="btn btn-solid">Get in Touch</a>
+      <a href="#experience" class="btn btn-border">See Experience</a>
     </div>
   </div>
-</section>
+  <div>
+    <div class="info-card">
+      <h3>At a Glance</h3>
+      <ul class="stat-list">
+        <li><span class="label">Experience</span><span class="value accent">13+ yrs</span></li>
+        <li><span class="label">Current Role</span><span class="value">Technical Lead</span></li>
+        <li><span class="label">Company</span><span class="value">Tech Mahindra Americas</span></li>
+        <li><span class="label">Client</span><span class="value">Nissan North America</span></li>
+        <li><span class="label">Location</span><span class="value">Franklin, TN</span></li>
+        <li><span class="label">Relocation</span><span class="value">Open</span></li>
+      </ul>
+      <div class="contact-info">
+        <a href="mailto:mr.shreenu21@gmail.com">✉ mr.shreenu21@gmail.com</a>
+        <a href="tel:+19455447958">📞 +1 (945) 544-7958</a>
+        <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">🔗 LinkedIn Profile</a>
+        <a href="https://shreenu.github.io">🌐 shreenu.github.io</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="wrap">
-    <div class="s-label">// 01 — About</div>
-    <h2>Who I Am</h2>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a <strong>Solutions Architect & Senior Technical Lead</strong> with 13+ years designing and delivering cloud-native systems at enterprise scale. Based in <strong>Franklin, Tennessee</strong>, I currently lead platform modernization for <em>Nissan North America</em> at Tech Mahindra Americas.</p>
-        <p>My core strength is <strong>transforming legacy complexity into scalable architecture</strong> — leading migrations from monolithic Java/EJB/WebSphere applications to resilient Node.js microservices on AWS, designing the event-driven integration layers, API contracts, and cloud infrastructure that power them.</p>
-        <p>I also have hands-on experience resolving and maintaining <strong>Java Spring Boot APIs</strong> during modernization transitions, giving me a well-rounded view of both legacy and modern backend ecosystems.</p>
-        <p>Beyond backend systems, I'm actively <strong>prototyping AI-powered workflows</strong> — building RAG pipelines with LangChain for a Nissan Dealer Chatbot and agentic Text-to-SQL systems with LangGraph that let non-technical stakeholders query data in plain English, with full guardrails and monitoring.</p>
-        <div class="competencies">
-          <div class="comp-label">CORE COMPETENCIES</div>
-          <div class="comp-tags">
-            <span class="comp-tag">Solutions Architecture</span><span class="comp-tag">Microservices</span>
-            <span class="comp-tag">Event-Driven Design</span><span class="comp-tag">AWS</span>
-            <span class="comp-tag">LangChain</span><span class="comp-tag">LangGraph</span>
-            <span class="comp-tag">RAG / LLM</span><span class="comp-tag">Node.js</span>
-            <span class="comp-tag">Python</span><span class="comp-tag">Java Spring Boot</span>
-            <span class="comp-tag">Kafka</span><span class="comp-tag">CI/CD</span><span class="comp-tag">Team Leadership</span>
-          </div>
+  <div class="sec-label">About</div>
+  <h2>13 years building<br/>what scales.</h2>
+  <div class="about-grid">
+    <div class="about-text fade">
+      <p>I'm a <strong>Solutions Architect & Senior Technical Lead</strong> with 13+ years designing cloud-native APIs, microservices, and event-driven systems on AWS. Currently leading platform modernization for <strong>Nissan North America</strong> at Tech Mahindra Americas in Franklin, TN.</p>
+      <p>I specialize in transforming legacy <strong>Java/EJB/WebSphere monoliths</strong> into scalable Node.js microservices — designing the Kafka event layers, REST/SOAP APIs, and AWS infrastructure from scratch. I also maintain <strong>Java Spring Boot APIs</strong> during cut-over phases, giving me full-stack modernization coverage.</p>
+      <p>Beyond architecture, I'm actively building <strong>AI-powered backends</strong> — RAG pipelines with LangChain for a Nissan Dealer Chatbot, and agentic Text-to-SQL workflows with LangGraph that let non-technical teams query databases in plain English, with full guardrails and monitoring.</p>
+      <div class="competencies">
+        <h4>Core Competencies</h4>
+        <div class="comp-tags">
+          <span class="comp-tag">Solutions Architecture</span>
+          <span class="comp-tag">Microservices</span>
+          <span class="comp-tag">Event-Driven Design</span>
+          <span class="comp-tag">AWS</span>
+          <span class="comp-tag">LangChain</span>
+          <span class="comp-tag">LangGraph</span>
+          <span class="comp-tag">RAG / LLM</span>
+          <span class="comp-tag">Node.js</span>
+          <span class="comp-tag">Python</span>
+          <span class="comp-tag">Kafka</span>
+          <span class="comp-tag">CI/CD</span>
+          <span class="comp-tag">Team Leadership</span>
         </div>
       </div>
-      <div class="reveal">
-        <div class="sidebar-panel">
-          <div class="stats-panel-header">contact.info</div>
-          <div class="sidebar-panel-body">
-            <div class="contact-item"><div class="c-dot"></div>Franklin, TN · Open to Relocation</div>
-            <div class="contact-item"><div class="c-dot"></div><a href="mailto:mr.shreenu21@gmail.com">mr.shreenu21@gmail.com</a></div>
-            <div class="contact-item"><div class="c-dot"></div>+1 (945) 544-7958</div>
-            <div class="contact-item"><div class="c-dot"></div><a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn ↗</a></div>
-            <div class="contact-item"><div class="c-dot"></div><a href="https://shreenu.github.io">shreenu.github.io ↗</a></div>
-            <div class="contact-item"><div class="c-dot"></div>Tech Mahindra Americas · Current</div>
-            <div class="contact-item"><div class="c-dot"></div>BCA — IGNOU 2017</div>
-          </div>
-        </div>
+    </div>
+    <div class="fade">
+      <div class="sidebar-box">
+        <h4>Key Achievements</h4>
+        <ul class="sidebar-list">
+          <li>40% reduction in partner integration time (Kafka framework)</li>
+          <li>95% reduction in manual document entry (Python OCR)</li>
+          <li>90% fewer XML parsing errors (XSD + WebAssembly)</li>
+          <li>2× throughput improvement (microservices refactor)</li>
+          <li>50% faster query response (PostgreSQL optimization)</li>
+          <li>20% fewer support tickets (React portal improvements)</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -413,79 +391,102 @@ footer {
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="wrap">
-    <div class="s-label">// 02 — Skills</div>
-    <h2>Technical Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill-card ai-card reveal">
-        <div class="sc-title">⚡ AI / LLM Integration</div>
-        <div class="sc-tags">
-          <span class="sc-tag">LangChain</span><span class="sc-tag">LangGraph</span>
-          <span class="sc-tag">RAG Pipelines</span><span class="sc-tag">Text-to-SQL</span>
-          <span class="sc-tag">Vector Databases</span><span class="sc-tag">OpenAI API</span>
-          <span class="sc-tag">Prompt Engineering</span><span class="sc-tag">Agentic AI</span>
-        </div>
+  <div class="sec-label">Skills</div>
+  <h2>Technical Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-box featured fade">
+      <div class="skill-box-title">⚡ AI / LLM</div>
+      <div class="skill-pills">
+        <span class="skill-pill">LangChain</span>
+        <span class="skill-pill">LangGraph</span>
+        <span class="skill-pill">RAG Pipelines</span>
+        <span class="skill-pill">Text-to-SQL</span>
+        <span class="skill-pill">Vector DBs</span>
+        <span class="skill-pill">OpenAI API</span>
+        <span class="skill-pill">Agentic AI</span>
+        <span class="skill-pill">Prompt Engineering</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Languages</div>
-        <div class="sc-tags">
-          <span class="sc-tag">TypeScript</span><span class="sc-tag">JavaScript ES6+</span>
-          <span class="sc-tag">Python</span><span class="sc-tag">Java Spring Boot</span>
-          <span class="sc-tag">SQL</span><span class="sc-tag">PHP</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Languages</div>
+      <div class="skill-pills">
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">JavaScript ES6+</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Java Spring Boot</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">PHP</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Backend & Frameworks</div>
-        <div class="sc-tags">
-          <span class="sc-tag">Node.js</span><span class="sc-tag">Express.js</span>
-          <span class="sc-tag">NestJS</span><span class="sc-tag">FastAPI</span>
-          <span class="sc-tag">GraphQL</span><span class="sc-tag">Sequelize</span>
-          <span class="sc-tag">Knex.js</span><span class="sc-tag">Serverless-Express</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Backend</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">Express.js</span>
+        <span class="skill-pill">NestJS</span>
+        <span class="skill-pill">FastAPI</span>
+        <span class="skill-pill">GraphQL</span>
+        <span class="skill-pill">Sequelize</span>
+        <span class="skill-pill">Knex.js</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Cloud & Infrastructure</div>
-        <div class="sc-tags">
-          <span class="sc-tag">AWS ECS</span><span class="sc-tag">AWS Lambda</span>
-          <span class="sc-tag">API Gateway</span><span class="sc-tag">MSK / Kafka</span>
-          <span class="sc-tag">Step Functions</span><span class="sc-tag">S3</span>
-          <span class="sc-tag">VPC</span><span class="sc-tag">Cognito</span>
-          <span class="sc-tag">Docker</span><span class="sc-tag">CI/CD</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Cloud & Infra</div>
+      <div class="skill-pills">
+        <span class="skill-pill">AWS ECS</span>
+        <span class="skill-pill">Lambda</span>
+        <span class="skill-pill">API Gateway</span>
+        <span class="skill-pill">MSK / Kafka</span>
+        <span class="skill-pill">Step Functions</span>
+        <span class="skill-pill">S3</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">CI/CD</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Databases</div>
-        <div class="sc-tags">
-          <span class="sc-tag">PostgreSQL</span><span class="sc-tag">MySQL</span>
-          <span class="sc-tag">MongoDB</span><span class="sc-tag">MSSQL</span>
-          <span class="sc-tag">FAISS</span><span class="sc-tag">ChromaDB</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Databases</div>
+      <div class="skill-pills">
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">MSSQL</span>
+        <span class="skill-pill">FAISS</span>
+        <span class="skill-pill">ChromaDB</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">API & Protocols</div>
-        <div class="sc-tags">
-          <span class="sc-tag">RESTful APIs</span><span class="sc-tag">SOAP</span>
-          <span class="sc-tag">GraphQL</span><span class="sc-tag">XML / XSD</span>
-          <span class="sc-tag">WebAssembly</span><span class="sc-tag">OAuth2</span><span class="sc-tag">JWT</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">API & Protocols</div>
+      <div class="skill-pills">
+        <span class="skill-pill">REST</span>
+        <span class="skill-pill">SOAP</span>
+        <span class="skill-pill">GraphQL</span>
+        <span class="skill-pill">XML / XSD</span>
+        <span class="skill-pill">WebAssembly</span>
+        <span class="skill-pill">OAuth2</span>
+        <span class="skill-pill">JWT</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Architecture & Leadership</div>
-        <div class="sc-tags">
-          <span class="sc-tag">Solutions Architecture</span><span class="sc-tag">System Design</span>
-          <span class="sc-tag">Microservices</span><span class="sc-tag">Circuit Breaker</span>
-          <span class="sc-tag">Event-Driven</span><span class="sc-tag">Technical Roadmaps</span>
-          <span class="sc-tag">Agile / Scrum</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Architecture</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Microservices</span>
+        <span class="skill-pill">Event-Driven</span>
+        <span class="skill-pill">Circuit Breaker</span>
+        <span class="skill-pill">System Design</span>
+        <span class="skill-pill">Technical Roadmaps</span>
+        <span class="skill-pill">Agile / Scrum</span>
       </div>
-      <div class="skill-card reveal">
-        <div class="sc-title">Frontend & Tools</div>
-        <div class="sc-tags">
-          <span class="sc-tag">Angular</span><span class="sc-tag">ReactJS</span>
-          <span class="sc-tag">CSS / JSX</span><span class="sc-tag">Git</span>
-          <span class="sc-tag">NPM</span><span class="sc-tag">Postman</span>
-          <span class="sc-tag">Swagger</span><span class="sc-tag">Jest</span><span class="sc-tag">Artillery.io</span>
-        </div>
+    </div>
+    <div class="skill-box fade">
+      <div class="skill-box-title">Frontend & Tools</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Angular</span>
+        <span class="skill-pill">ReactJS</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">NPM</span>
+        <span class="skill-pill">Postman</span>
+        <span class="skill-pill">Jest</span>
+        <span class="skill-pill">Artillery.io</span>
       </div>
     </div>
   </div>
@@ -493,264 +494,238 @@ footer {
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="wrap">
-    <div class="s-label">// 03 — Experience</div>
-    <h2>Work History</h2>
-    <div class="exp-list">
+  <div class="sec-label">Experience</div>
+  <h2>Work History</h2>
+  <div class="exp-list">
 
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">Jan 2025 — Present</div>
-          <div class="exp-company">Tech Mahindra Americas</div>
-          <div class="exp-location">New Jersey, USA</div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-role">Sr. Technical Lead / Software Developer</div>
-          <div class="exp-project">DBS Modernization · Nissan North America, Franklin TN</div>
-          <ul class="exp-bullets">
-            <li>Architected migration of monolithic Java dealer management system to scalable <strong>Node.js microservices on AWS ECS</strong>.</li>
-            <li>Resolved and maintained <strong>Java Spring Boot APIs</strong> during legacy-to-microservices transition, applying Spring Boot REST patterns to ensure continuity during cut-over phases.</li>
-            <li>Designed dynamic SOAP routers with <strong>Node.js and WebAssembly</strong> — achieving &lt;400ms latency across thousands of daily XML transactions.</li>
-            <li>Built REST and SOAP APIs with Express.js, Lambda, and Serverless supporting <strong>100+ DBS client endpoints</strong>.</li>
-            <li>Developed <strong>Kafka-based outbound integration framework</strong> (AWS MSK + ECS + Docker) — reducing partner integration time by 40%.</li>
-            <li>Led agile delivery for 1 onsite + 4 offshore engineers; reduced XML parsing errors by <strong>90%</strong>.</li>
-            <li>Initiated and prototyped <strong>RAG-based Dealer Chatbot</strong> using LangChain and vector retrieval over Nissan knowledge base.</li>
-            <li>Built <strong>Text-to-SQL prototype with LangGraph</strong> translating natural language to safe PostgreSQL queries with guardrails and monitoring.</li>
-          </ul>
-          <div class="exp-pills">
-            <span class="exp-pill">Node.js</span><span class="exp-pill">AWS ECS</span><span class="exp-pill">Kafka</span>
-            <span class="exp-pill">WebAssembly</span><span class="exp-pill">Java Spring Boot</span>
-            <span class="exp-pill">LangChain</span><span class="exp-pill">LangGraph</span><span class="exp-pill">TypeScript</span>
-          </div>
+    <div class="exp-item fade">
+      <div class="exp-meta">
+        <div class="exp-period">Jan 2025 — Present</div>
+        <div class="exp-company">Tech Mahindra Americas</div>
+        <div class="exp-loc">New Jersey, USA</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-title">Sr. Technical Lead / Software Developer</div>
+        <div class="exp-project">DBS Modernization · Nissan North America, Franklin TN</div>
+        <ul class="exp-bullets">
+          <li>Architected migration of monolithic Java dealer system to <strong>Node.js microservices on AWS ECS</strong> — improving scalability and deployment speed.</li>
+          <li>Resolved and maintained <strong>Java Spring Boot APIs</strong> during transition, applying Spring Boot REST patterns for continuity.</li>
+          <li>Designed SOAP routers with <strong>Node.js + WebAssembly</strong> — achieving &lt;400ms latency on thousands of daily XML transactions.</li>
+          <li>Built REST and SOAP APIs with Express.js, Lambda, Serverless — supporting <strong>100+ client endpoints</strong>.</li>
+          <li>Built <strong>Kafka outbound integration framework</strong> (MSK + ECS + Docker) — cutting partner integration time by 40%.</li>
+          <li>Led 1 onsite + 4 offshore engineers; reduced XML parsing errors by <strong>90%</strong> via XSD/WebAssembly validation.</li>
+          <li>Prototyped <strong>RAG-based Dealer Chatbot</strong> with LangChain for natural language Q&A over Nissan knowledge base.</li>
+          <li>Built <strong>Text-to-SQL system with LangGraph</strong> — translating plain English to safe PostgreSQL queries with guardrails.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Node.js</span><span class="stack-tag">AWS ECS</span>
+          <span class="stack-tag">Kafka</span><span class="stack-tag">WebAssembly</span>
+          <span class="stack-tag">Java Spring Boot</span><span class="stack-tag">LangChain</span>
+          <span class="stack-tag">LangGraph</span><span class="stack-tag">TypeScript</span>
         </div>
       </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">Sep 2022 — Jan 2025</div>
-          <div class="exp-company">Tech Mahindra Ltd.</div>
-          <div class="exp-location">Visakhapatnam, India</div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-role">Technical Lead</div>
-          <div class="exp-project">NSH (National Service History) · Nissan North America</div>
-          <ul class="exp-bullets">
-            <li>Involved in architectural redesign of legacy Java workflows into <strong>AWS Lambda + API Gateway Node.js microservices</strong>.</li>
-            <li>Optimized <strong>PostgreSQL queries with Knex.js</strong>, halving response time for high-traffic endpoints.</li>
-            <li>Integrated third-party rewards and analytics APIs, driving customer engagement improvements.</li>
-            <li>Enhanced React portals — reducing support tickets by <strong>20%</strong>.</li>
-            <li>Coordinated cross-region delivery for <strong>3 engineers across US and India</strong>.</li>
-          </ul>
-          <div class="exp-pills">
-            <span class="exp-pill">Node.js</span><span class="exp-pill">AWS Lambda</span>
-            <span class="exp-pill">PostgreSQL</span><span class="exp-pill">Knex.js</span><span class="exp-pill">ReactJS</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">Dec 2020 — Aug 2022</div>
-          <div class="exp-company">Patra India Pvt Ltd</div>
-          <div class="exp-location">Visakhapatnam, India</div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-role">Senior Developer</div>
-          <div class="exp-project">CertVault · Patra Corporation, El Dorado Hills, CA</div>
-          <ul class="exp-bullets">
-            <li>Built full-stack Certificate OCR platform using <strong>Python TesseractOCR, AWS Step Functions, Lambda, Node.js</strong> — reducing manual entry by 95%.</li>
-            <li>Architected RESTful APIs with Node.js, Express, Sequelize, MySQL for hundreds of concurrent uploads daily.</li>
-            <li>Refactored monolith to event-driven microservices — achieving <strong>2× system throughput</strong>.</li>
-            <li>Mentored 3 engineers; governed all PRs and code reviews.</li>
-          </ul>
-          <div class="exp-pills">
-            <span class="exp-pill">Python</span><span class="exp-pill">TesseractOCR</span>
-            <span class="exp-pill">Step Functions</span><span class="exp-pill">Node.js</span><span class="exp-pill">MySQL</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">May 2018 — Sep 2020</div>
-          <div class="exp-company">Patra India Pvt Ltd</div>
-          <div class="exp-location">Visakhapatnam, India</div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-role">Node.js Developer</div>
-          <div class="exp-project">Expenses Tracker · Patra Corporation</div>
-          <ul class="exp-bullets">
-            <li>Built RESTful APIs with Express.js and Sequelize for multi-step expense approval workflows with RBAC.</li>
-            <li>Implemented GraphQL aggregator APIs for consolidated reporting; SSO via AWS Cognito.</li>
-            <li>Established Jest unit testing and linting standards, reducing production bugs.</li>
-          </ul>
-          <div class="exp-pills">
-            <span class="exp-pill">Node.js</span><span class="exp-pill">GraphQL</span>
-            <span class="exp-pill">AWS Cognito</span><span class="exp-pill">Jest</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">May 2012 — Apr 2018</div>
-          <div class="exp-company">Schemax Technologies</div>
-          <div class="exp-location">Visakhapatnam, India</div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-role">Senior Developer</div>
-          <div class="exp-project">Warehouse Mgmt · BrandiX | MCA-Connect | Citizen Services | Dealers System</div>
-          <ul class="exp-bullets">
-            <li>Built real-time warehouse tracking with barcode scanning — improving inventory accuracy and reducing losses.</li>
-            <li>Architected HRM, timesheets, and service modules using Laravel and MySQL; automated cron jobs saving 8+ hours/month.</li>
-            <li>Implemented RBAC, secure authentication, and responsive UIs with AngularJS and Bootstrap across 4 client engagements.</li>
-          </ul>
-          <div class="exp-pills">
-            <span class="exp-pill">Express.js</span><span class="exp-pill">Laravel</span>
-            <span class="exp-pill">MySQL</span><span class="exp-pill">AngularJS</span><span class="exp-pill">PHP</span>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <div class="exp-item fade">
+      <div class="exp-meta">
+        <div class="exp-period">Sep 2022 — Jan 2025</div>
+        <div class="exp-company">Tech Mahindra Ltd.</div>
+        <div class="exp-loc">Visakhapatnam, India</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-title">Technical Lead</div>
+        <div class="exp-project">NSH (National Service History) · Nissan North America</div>
+        <ul class="exp-bullets">
+          <li>Involved in architectural redesign of legacy Java workflows into <strong>AWS Lambda + API Gateway Node.js microservices</strong>.</li>
+          <li>Optimized <strong>PostgreSQL with Knex.js</strong> — halving query response time on high-traffic endpoints.</li>
+          <li>Integrated third-party rewards and analytics APIs, improving customer engagement.</li>
+          <li>Enhanced React portals — reducing support tickets by <strong>20%</strong>.</li>
+          <li>Coordinated cross-region delivery for 3 engineers across US and India.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Node.js</span><span class="stack-tag">Lambda</span>
+          <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Knex.js</span><span class="stack-tag">ReactJS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2020 — Aug 2022</div>
+        <div class="exp-company">Patra India Pvt Ltd</div>
+        <div class="exp-loc">Visakhapatnam, India</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-title">Senior Developer</div>
+        <div class="exp-project">CertVault · Patra Corporation, El Dorado Hills, CA</div>
+        <ul class="exp-bullets">
+          <li>Built Certificate OCR platform with <strong>Python TesseractOCR, AWS Step Functions, Lambda, Node.js</strong> — reducing manual entry by 95%.</li>
+          <li>Architected REST APIs with Node.js, Express, Sequelize, MySQL for hundreds of concurrent uploads daily.</li>
+          <li>Refactored monolith to event-driven microservices — achieving <strong>2× throughput</strong>.</li>
+          <li>Mentored 3 engineers; owned all PRs and code reviews.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">TesseractOCR</span>
+          <span class="stack-tag">Step Functions</span><span class="stack-tag">Node.js</span><span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div class="exp-meta">
+        <div class="exp-period">May 2018 — Sep 2020</div>
+        <div class="exp-company">Patra India Pvt Ltd</div>
+        <div class="exp-loc">Visakhapatnam, India</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-title">Node.js Developer</div>
+        <div class="exp-project">Expenses Tracker · Patra Corporation</div>
+        <ul class="exp-bullets">
+          <li>Built REST APIs with Express.js and Sequelize for multi-step expense approval workflows with RBAC.</li>
+          <li>Implemented GraphQL aggregator APIs for reporting; SSO via AWS Cognito.</li>
+          <li>Set up Jest testing and linting, reducing production bugs.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Node.js</span><span class="stack-tag">GraphQL</span>
+          <span class="stack-tag">AWS Cognito</span><span class="stack-tag">Jest</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade">
+      <div class="exp-meta">
+        <div class="exp-period">May 2012 — Apr 2018</div>
+        <div class="exp-company">Schemax Technologies</div>
+        <div class="exp-loc">Visakhapatnam, India</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-title">Senior Developer</div>
+        <div class="exp-project">Warehouse · BrandiX | MCA-Connect | Citizen Portal | Dealers System</div>
+        <ul class="exp-bullets">
+          <li>Built real-time warehouse tracking with barcode scanning — improving inventory accuracy.</li>
+          <li>Architected HRM, timesheets, and service modules using Laravel and MySQL; cron automation saving 8+ hrs/month.</li>
+          <li>Delivered secure RBAC systems and responsive UIs with AngularJS and Bootstrap across 4 clients.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Express.js</span><span class="stack-tag">Laravel</span>
+          <span class="stack-tag">MySQL</span><span class="stack-tag">AngularJS</span><span class="stack-tag">PHP</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- AI PROJECTS -->
 <section id="ai">
-  <div class="wrap">
-    <div class="s-label">// 04 — AI Projects</div>
-    <h2>AI / LLM Projects & POCs</h2>
-    <p class="ai-intro">Actively building intelligent backend systems with LangChain, LangGraph, and RAG pipelines.</p>
-    <div class="ai-grid">
-      <div class="ai-card reveal">
-        <div class="ai-num">01 / RAG PIPELINE</div>
-        <div class="ai-title">Nissan Dealer Chatbot</div>
-        <div class="ai-stack">LangChain · Vector DB (FAISS/ChromaDB) · OpenAI · Node.js · Python</div>
-        <ul class="ai-bullets">
-          <li>Designed RAG-based conversational chatbot for Nissan dealer operations — enabling natural language Q&A over dealer knowledge bases, service manuals, and policy documents.</li>
-          <li>Built document ingestion pipeline with LangChain, vector retrieval, and OpenAI LLM for context-aware, grounded responses.</li>
-          <li>Implemented retrieval guardrails restricting responses to dealer-relevant content, preventing hallucination and off-domain answers.</li>
-          <li>Architected Node.js API layer with session context management for production readiness.</li>
-        </ul>
-        <div class="ai-outcome">Outcome: Client-facing POC validated for Nissan dealer Q&A automation. Integration patterns documented for future productionization.</div>
-      </div>
-      <div class="ai-card reveal">
-        <div class="ai-num">02 / AGENTIC AI</div>
-        <div class="ai-title">Text-to-SQL Workflow</div>
-        <div class="ai-stack">LangGraph · LangChain · PostgreSQL · Python</div>
-        <ul class="ai-bullets">
-          <li>Built agentic Text-to-SQL system using LangGraph multi-step agents — translating natural language business questions into validated, safe PostgreSQL queries.</li>
-          <li>Implemented query restriction layer enforcing data access boundaries — blocking unauthorized table access and destructive SQL operations.</li>
-          <li>Added monitoring and observability tracking query intent, generated SQL, execution time, and error patterns for full auditability.</li>
-          <li>Designed agent graph with review and validation nodes before query execution — ensuring SQL correctness and safety.</li>
-        </ul>
-        <div class="ai-outcome">Outcome: Validated feasibility for conversational SQL workflows. Documented embedding/vector DB trade-offs and integration patterns.</div>
-      </div>
+  <div class="sec-label">AI Projects</div>
+  <h2>AI / LLM Work</h2>
+  <div class="ai-grid">
+    <div class="ai-box fade">
+      <div class="ai-badge">RAG Pipeline</div>
+      <div class="ai-title">Nissan Dealer Chatbot</div>
+      <div class="ai-stack-line">LangChain · FAISS / ChromaDB · OpenAI · Node.js · Python</div>
+      <ul class="ai-pts">
+        <li>RAG-based chatbot for dealer operations — natural language Q&A over service manuals, policies, and knowledge bases.</li>
+        <li>Document ingestion pipeline with vector retrieval and OpenAI LLM for grounded, context-aware answers.</li>
+        <li>Retrieval guardrails to restrict responses to dealer-relevant content — preventing hallucination.</li>
+        <li>Node.js API layer with session context management for production readiness.</li>
+      </ul>
+      <div class="ai-result">Outcome: Client-facing POC for Nissan dealer Q&A. Integration patterns documented for productionization.</div>
+    </div>
+    <div class="ai-box fade">
+      <div class="ai-badge">Agentic AI</div>
+      <div class="ai-title">Text-to-SQL Workflow</div>
+      <div class="ai-stack-line">LangGraph · LangChain · PostgreSQL · Python</div>
+      <ul class="ai-pts">
+        <li>Multi-step LangGraph agents translating natural language business questions into safe, validated PostgreSQL queries.</li>
+        <li>Query restriction layer enforcing data boundaries — blocking unauthorized table access and destructive SQL.</li>
+        <li>Monitoring layer tracking query intent, generated SQL, execution time, and errors for full auditability.</li>
+        <li>Agent graph with review and validation nodes before execution — ensuring safety and correctness.</li>
+      </ul>
+      <div class="ai-result">Outcome: Validated feasibility for conversational SQL. Documented trade-offs and integration patterns.</div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="wrap">
-    <div class="s-label">// 05 — Projects</div>
-    <h2>Enterprise Projects</h2>
-    <div class="proj-grid">
-      <div class="proj-card reveal">
-        <div class="proj-num">01 / AUTOMOTIVE</div>
-        <div class="proj-title">DBS Modernization</div>
-        <div class="proj-client">Nissan North America</div>
-        <p class="proj-desc">Migrated monolithic Java dealer management system to cloud-native Node.js microservices on AWS ECS. Kafka-based integration framework reducing partner onboarding by 40%.</p>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">02 / AUTOMOTIVE</div>
-        <div class="proj-title">National Service History</div>
-        <div class="proj-client">Nissan North America</div>
-        <p class="proj-desc">Re-architected legacy Java workflows into AWS Lambda microservices. Optimized PostgreSQL performance, halving query response times on high-traffic endpoints.</p>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">03 / INSURANCE</div>
-        <div class="proj-title">CertVault — OCR Platform</div>
-        <div class="proj-client">Patra Corporation</div>
-        <p class="proj-desc">Certificate automation platform using Python TesseractOCR and AWS Step Functions. Reduced manual data entry by 95%, achieving 2× throughput improvement.</p>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">04 / GOVERNMENT</div>
-        <div class="proj-title">Online Citizen Service Portal</div>
-        <div class="proj-client">GVMC Municipal Corporation</div>
-        <p class="proj-desc">Secure property and water tax payment portal with Citrus gateway. Real-time admin dashboards and MySQL/MSSQL cross-database sync for citizen records.</p>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">05 / AUTOMOTIVE</div>
-        <div class="proj-title">Dealers Management System</div>
-        <div class="proj-client">Varun Group</div>
-        <p class="proj-desc">Inventory, sales, and transfer modules for multi-location auto dealership. Real-time RESTful APIs and centralized reporting for 5+ dealer locations.</p>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">06 / LOGISTICS</div>
-        <div class="proj-title">Warehouse Location Management</div>
-        <div class="proj-client">BrandiX</div>
-        <p class="proj-desc">Real-time warehouse tracking with barcode scanning. High-volume Express.js + Sequelize backend with AngularJS UI for inventory accuracy and loss reduction.</p>
-      </div>
+  <div class="sec-label">Projects</div>
+  <h2>Enterprise Work</h2>
+  <div class="proj-grid">
+    <div class="proj-box fade">
+      <div class="proj-sector">Automotive</div>
+      <div class="proj-name">DBS Modernization</div>
+      <div class="proj-client">Nissan North America</div>
+      <p class="proj-desc">Migrated monolithic Java dealer system to Node.js microservices on AWS ECS. Kafka integration framework cutting partner onboarding by 40%.</p>
+    </div>
+    <div class="proj-box fade">
+      <div class="proj-sector">Automotive</div>
+      <div class="proj-name">National Service History</div>
+      <div class="proj-client">Nissan North America</div>
+      <p class="proj-desc">Re-architected Java workflows to AWS Lambda microservices. PostgreSQL optimization halving query response times.</p>
+    </div>
+    <div class="proj-box fade">
+      <div class="proj-sector">Insurance</div>
+      <div class="proj-name">CertVault — OCR Platform</div>
+      <div class="proj-client">Patra Corporation</div>
+      <p class="proj-desc">Certificate automation with Python TesseractOCR and Step Functions. 95% manual entry reduction, 2× throughput improvement.</p>
+    </div>
+    <div class="proj-box fade">
+      <div class="proj-sector">Government</div>
+      <div class="proj-name">Citizen Service Portal</div>
+      <div class="proj-client">GVMC Municipal Corporation</div>
+      <p class="proj-desc">Property and water tax payment portal with Citrus gateway, admin dashboards, and MySQL/MSSQL sync.</p>
+    </div>
+    <div class="proj-box fade">
+      <div class="proj-sector">Automotive</div>
+      <div class="proj-name">Dealers Management System</div>
+      <div class="proj-client">Varun Group</div>
+      <p class="proj-desc">Inventory, sales, and transfer modules for 5+ dealer locations with real-time RESTful APIs and centralized reporting.</p>
+    </div>
+    <div class="proj-box fade">
+      <div class="proj-sector">Logistics</div>
+      <div class="proj-name">Warehouse Management</div>
+      <div class="proj-client">BrandiX</div>
+      <p class="proj-desc">Real-time barcode tracking system with high-volume Express.js backend and AngularJS inventory UI.</p>
     </div>
   </div>
 </section>
 
 <!-- CERTS -->
 <section id="certs">
-  <div class="wrap">
-    <div class="s-label">// 06 — Certifications</div>
-    <h2>Certifications & Training</h2>
-    <div class="certs-grid">
-      <div class="cert-card reveal"><div class="cert-ico">🤖</div><div><div class="cert-name">AI White Belt L1 V1</div><div class="cert-by">Tech Mahindra</div></div></div>
-      <div class="cert-card reveal"><div class="cert-ico">🧠</div><div><div class="cert-name">AI-101</div><div class="cert-by">Tech Mahindra</div></div></div>
-      <div class="cert-card reveal"><div class="cert-ico">⚙️</div><div><div class="cert-name">GitHub Copilot L1 V1</div><div class="cert-by">Tech Mahindra</div></div></div>
-      <div class="cert-card reveal"><div class="cert-ico">☁️</div><div><div class="cert-name">AWS — Practical Experience</div><div class="cert-by">ECS · Lambda · MSK · API Gateway · Step Functions</div></div></div>
-    </div>
+  <div class="sec-label">Certifications</div>
+  <h2>Training & Certs</h2>
+  <div class="cert-grid">
+    <div class="cert-box fade"><div class="cert-icon">🤖</div><div><div class="cert-name">AI White Belt L1 V1</div><div class="cert-by">Tech Mahindra</div></div></div>
+    <div class="cert-box fade"><div class="cert-icon">🧠</div><div><div class="cert-name">AI-101</div><div class="cert-by">Tech Mahindra</div></div></div>
+    <div class="cert-box fade"><div class="cert-icon">⚙️</div><div><div class="cert-name">GitHub Copilot L1 V1</div><div class="cert-by">Tech Mahindra</div></div></div>
+    <div class="cert-box fade"><div class="cert-icon">☁️</div><div><div class="cert-name">AWS Practical Experience</div><div class="cert-by">ECS · Lambda · MSK · API Gateway</div></div></div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand"><span>SK</span> — Srinu Konapala</div>
+  <div class="footer-name"><b>SK</b> Srinu Konapala</div>
   <div class="footer-links">
     <a href="mailto:mr.shreenu21@gmail.com">Email</a>
     <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn</a>
     <a href="https://shreenu.github.io">Website</a>
-    <a href="#hero">↑ Top</a>
+    <a href="#" onclick="window.scrollTo(0,0);return false;">↑ Top</a>
   </div>
-  <div class="footer-copy">© 2025 · Franklin, Tennessee</div>
+  <div class="footer-copy">© 2025 Franklin, Tennessee</div>
 </footer>
 
 <script>
-// Reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 70);
-      observer.unobserve(entry.target);
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('show'), i * 60);
+      obs.unobserve(e.target);
     }
   });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Nav shadow
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-});
-
-// Active nav highlight
-const sections = document.querySelectorAll('section[id]');
-const links    = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-  links.forEach(a => {
-    const active = a.getAttribute('href') === '#' + cur;
-    a.style.color = active ? 'var(--accent)' : '';
-  });
-});
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
